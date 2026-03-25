@@ -1,0 +1,103 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.04"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="400" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04">
+    <line x1="0" y1="40" x2="640" y2="40" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="80" x2="640" y2="80" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="120" x2="640" y2="120" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="160" x2="640" y2="160" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="200" x2="640" y2="200" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="240" x2="640" y2="240" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="280" x2="640" y2="280" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="320" x2="640" y2="320" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="360" x2="640" y2="360" stroke="white" stroke-width="1"/>
+  </g>
+
+  <!-- Title -->
+  <text x="320" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle">SessionBridge</text>
+  <text x="320" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#a5b4fc" text-anchor="middle">Browser Session → MCP Server — Zero Credentials</text>
+
+  <!-- Flow diagram -->
+  <!-- Step 1: Browser -->
+  <rect x="36" y="115" width="150" height="110" rx="12" fill="url(#card)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="111" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" text-anchor="middle">🌐</text>
+  <text x="111" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">Chrome Browser</text>
+  <text x="111" y="192" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Login via SSO</text>
+  <text x="111" y="207" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">as you normally do</text>
+
+  <!-- Arrow 1 -->
+  <line x1="196" y1="170" x2="232" y2="170" stroke="url(#arrow)" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="232,164 244,170 232,176" fill="#818cf8"/>
+
+  <!-- Step 2: SessionBridge -->
+  <rect x="245" y="115" width="150" height="110" rx="12" fill="url(#card)" stroke="#818cf8" stroke-opacity="0.5" stroke-width="1.5"/>
+  <rect x="245" y="115" width="150" height="110" rx="12" fill="url(#accent)" opacity="0.08"/>
+  <!-- Bridge icon inline -->
+  <g transform="translate(97, 130) scale(4.2)">
+    <path d="M1.94373 3.88803V3.03003C1.74381 2.9384 1.55777 2.82733 1.38839 2.69682V3.88803H1.94373ZM1.38839 4.99871H0.833051V4.44337H0.27771V3.88803H0.833051V1.94434H1.38839V2.34141C1.8882 2.77735 2.57405 3.05502 3.33209 3.05502C4.09013 3.05502 4.77597 2.77735 5.27578 2.34141V1.94434H5.83112V3.88803H6.38646V4.44337H5.83112V4.99871H5.27578V4.44337H1.38839V4.99871ZM4.72044 3.03003V3.88803H5.27578V2.69682C5.1064 2.82733 4.92036 2.9384 4.72044 3.03003ZM4.44277 3.88803V3.14387C4.26506 3.20774 4.07902 3.25494 3.88743 3.28826V3.88803H4.44277ZM3.60976 3.88803V3.32158L3.33209 3.33269L3.05442 3.32158V3.88803H3.60976ZM2.77675 3.88803V3.28826C2.58515 3.25494 2.39911 3.20774 2.2214 3.14387V3.88803H2.77675Z" fill="#a78bfa"/>
+  </g>
+  <text x="320" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">SessionBridge</text>
+  <text x="320" y="192" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Captures cookies</text>
+  <text x="320" y="207" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">+ CSRF tokens</text>
+
+  <!-- Arrow 2 -->
+  <line x1="405" y1="170" x2="441" y2="170" stroke="url(#arrow)" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="441,164 453,170 441,176" fill="#818cf8"/>
+
+  <!-- Step 3: MCP Server -->
+  <rect x="454" y="115" width="150" height="110" rx="12" fill="url(#card)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="529" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="28" text-anchor="middle">🤖</text>
+  <text x="529" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">MCP Server</text>
+  <text x="529" y="192" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Authenticates API</text>
+  <text x="529" y="207" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">calls automatically</text>
+
+  <!-- Feature cards row -->
+  <!-- Card 1 -->
+  <rect x="36" y="255" width="136" height="115" rx="10" fill="url(#card)" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="104" y="288" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" text-anchor="middle">🔑</text>
+  <text x="104" y="312" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Zero Credentials</text>
+  <text x="104" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">No API keys, passwords</text>
+  <text x="104" y="344" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">or OAuth setup needed</text>
+
+  <!-- Card 2 -->
+  <rect x="189" y="255" width="136" height="115" rx="10" fill="url(#card)" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="257" y="288" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" text-anchor="middle">🏢</text>
+  <text x="257" y="312" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">SSO Compatible</text>
+  <text x="257" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Works with SAML, Okta</text>
+  <text x="257" y="344" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Azure AD and more</text>
+
+  <!-- Card 3 -->
+  <rect x="342" y="255" width="136" height="115" rx="10" fill="url(#card)" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="410" y="288" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" text-anchor="middle">🌐</text>
+  <text x="410" y="312" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Multi-Platform</text>
+  <text x="410" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">ServiceNow, Jira</text>
+  <text x="410" y="344" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Salesforce, GitHub</text>
+
+  <!-- Card 4 -->
+  <rect x="495" y="255" width="136" height="115" rx="10" fill="url(#card)" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="563" y="288" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" text-anchor="middle">🔒</text>
+  <text x="563" y="312" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Secure &amp; Local</text>
+  <text x="563" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Data never leaves</text>
+  <text x="563" y="344" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">your machine</text>
+</svg>

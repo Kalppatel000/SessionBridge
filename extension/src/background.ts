@@ -100,30 +100,19 @@ async function getCookiesForDomain(domain: string): Promise<string> {
 
 function sendToNativeHost(message: Record<string, unknown>): Promise<unknown> {
   return new Promise((resolve, reject) => {
-    console.log('[SessionBridge] Calling chrome.runtime.sendNativeMessage to host:', NATIVE_HOST_NAME);
-    try {
-      chrome.runtime.sendNativeMessage(NATIVE_HOST_NAME, message, (response) => {
-        if (chrome.runtime.lastError) {
-          console.error('[SessionBridge] Native messaging error:', chrome.runtime.lastError.message);
-          reject(new Error(chrome.runtime.lastError.message));
-        } else {
-          console.log('[SessionBridge] Native messaging success, response:', response);
-          resolve(response);
-        }
-      });
-    } catch (e) {
-      console.error('[SessionBridge] sendNativeMessage threw:', (e as Error).message);
-      reject(e);
-    }
+    chrome.runtime.sendNativeMessage(NATIVE_HOST_NAME, message, (response) => {
+      if (chrome.runtime.lastError) {
+        reject(new Error(chrome.runtime.lastError.message));
+      } else {
+        resolve(response);
+      }
+    });
   });
 }
 
 async function handleWriteSession(msg: WriteSessionMessage, sendResponse: (resp: unknown) => void) {
   try {
-    console.log('[SessionBridge] handleWriteSession called for domain:', msg.domain);
-
     const cookieString = await getCookiesForDomain(msg.domain);
-    console.log('[SessionBridge] Cookies retrieved, length:', cookieString.length);
 
     const sessionData = {
       domain: msg.domain,
@@ -131,26 +120,19 @@ async function handleWriteSession(msg: WriteSessionMessage, sendResponse: (resp:
       csrf: msg.csrf || null,
       user: msg.user || null,
       timestamp: Date.now(),
-      ttl: 1800, // default; overridden below
+      ttl: 1800,
     };
 
-    // Look up TTL from config
     const domainConfig = await findDomainConfig(msg.domain);
     if (domainConfig) {
       sessionData.ttl = domainConfig.config.sessionTTL;
     }
-    console.log('[SessionBridge] Sending to native host, action: write_session, domain:', msg.domain);
 
-    const nativeMessage = {
+    await sendToNativeHost({
       action: 'write_session',
       ...sessionData,
-    };
-    console.log('[SessionBridge] Native message size:', JSON.stringify(nativeMessage).length, 'bytes');
+    });
 
-    const nativeResponse = await sendToNativeHost(nativeMessage);
-    console.log('[SessionBridge] Native host response:', JSON.stringify(nativeResponse));
-
-    // Track status
     sessionStatus[msg.domain] = {
       timestamp: Date.now(),
       domain: msg.domain,
@@ -159,8 +141,7 @@ async function handleWriteSession(msg: WriteSessionMessage, sendResponse: (resp:
 
     sendResponse({ success: true });
   } catch (err) {
-    console.error('[SessionBridge] Failed to write session:', (err as Error).message);
-    console.error('[SessionBridge] Error stack:', (err as Error).stack);
+    console.error('[SessionBridge] Failed to write session:', err);
     sendResponse({ success: false, error: (err as Error).message });
   }
 }
@@ -183,10 +164,8 @@ async function handleGetStatus(sendResponse: (resp: unknown) => void) {
 
 // Listen for messages from content script and popup
 chrome.runtime.onMessage.addListener((message: ExtensionMessage, _sender, sendResponse) => {
-  console.log('[SessionBridge] Received message type:', message.type);
   switch (message.type) {
     case 'WRITE_SESSION':
-      console.log('[SessionBridge] Processing WRITE_SESSION for:', (message as WriteSessionMessage).domain);
       handleWriteSession(message, sendResponse);
       return true; // async response
 
@@ -214,5 +193,5 @@ chrome.runtime.onInstalled.addListener(async () => {
   if (!existing.config) {
     await saveConfig(DEFAULT_CONFIG);
   }
-  console.log('[SessionBridge] Extension installed. Default config loaded.');
+  console.log('[SessionBridge] Extension installed.');
 });

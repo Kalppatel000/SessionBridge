@@ -1,0 +1,19 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="128" height="128" rx="28" ry="28" fill="url(#bg)"/>
+  <!-- Bridge icon scaled from original 7x7 to fit 128x128 with padding -->
+  <g transform="translate(16, 28) scale(14.5)" clip-path="url(#clip0)">
+    <path d="M1.94373 3.88803V3.03003C1.74381 2.9384 1.55777 2.82733 1.38839 2.69682V3.88803H1.94373ZM1.38839 4.99871H0.833051V4.44337H0.27771V3.88803H0.833051V1.94434H1.38839V2.34141C1.8882 2.77735 2.57405 3.05502 3.33209 3.05502C4.09013 3.05502 4.77597 2.77735 5.27578 2.34141V1.94434H5.83112V3.88803H6.38646V4.44337H5.83112V4.99871H5.27578V4.44337H1.38839V4.99871ZM4.72044 3.03003V3.88803H5.27578V2.69682C5.1064 2.82733 4.92036 2.9384 4.72044 3.03003ZM4.44277 3.88803V3.14387C4.26506 3.20774 4.07902 3.25494 3.88743 3.28826V3.88803H4.44277ZM3.60976 3.88803V3.32158L3.33209 3.33269L3.05442 3.32158V3.88803H3.60976ZM2.77675 3.88803V3.28826C2.58515 3.25494 2.39911 3.20774 2.2214 3.14387V3.88803H2.77675Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <rect width="6.6641" height="6.6641" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
