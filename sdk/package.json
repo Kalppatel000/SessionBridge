@@ -1,0 +1,19 @@
+{
+  "name": "@sessionbridge/sdk",
+  "version": "1.0.0",
+  "description": "SDK for reading SessionBridge browser sessions in MCP servers",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["sessionbridge", "mcp", "chrome-extension", "session", "authentication"],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

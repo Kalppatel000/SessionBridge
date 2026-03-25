@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SessionBridge</h1>
+    <p class="subtitle">Browser session sharing for MCP servers</p>
+
+    <div id="domains-list"></div>
+
+    <div class="actions">
+      <button id="add-domain-btn" class="btn btn-primary">+ Add Domain</button>
+      <button id="refresh-all-btn" class="btn btn-secondary">Refresh All</button>
+    </div>
+
+    <div id="add-domain-form" class="hidden">
+      <h2>Add Domain</h2>
+      <label>
+        Domain Pattern
+        <input type="text" id="domain-pattern" placeholder="*.example.com">
+      </label>
+      <label>
+        CSRF Selector
+        <input type="text" id="csrf-selector" placeholder="meta[name='csrf-token']">
+      </label>
+      <label>
+        CSRF Header Name
+        <input type="text" id="csrf-header" placeholder="X-CSRF-Token" value="X-CSRF-Token">
+      </label>
+      <label>
+        Refresh Interval (seconds)
+        <input type="number" id="refresh-interval" value="600" min="60">
+      </label>
+      <label>
+        Session TTL (seconds)
+        <input type="number" id="session-ttl" value="3600" min="300">
+      </label>
+      <div class="form-actions">
+        <button id="save-domain-btn" class="btn btn-primary">Save</button>
+        <button id="cancel-domain-btn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

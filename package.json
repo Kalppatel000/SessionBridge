@@ -1,0 +1,19 @@
+{
+  "name": "sessionbridge",
+  "version": "1.0.0",
+  "description": "Generic Chrome Extension for sharing browser sessions with MCP servers",
+  "private": true,
+  "workspaces": [
+    "extension",
+    "sdk"
+  ],
+  "scripts": {
+    "build": "npm run build:extension && npm run build:sdk",
+    "build:extension": "cd extension && npm run build",
+    "build:sdk": "cd sdk && npm run build",
+    "dev": "cd extension && npm run dev"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

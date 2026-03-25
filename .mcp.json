@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "servicenow": {
+      "command": "/Users/kalp.patel/Downloads/servicenow-mcp/.venv/bin/python",
+      "args": ["-m", "servicenow_mcp.cli"],
+      "env": {
+        "SERVICENOW_AUTH_TYPE": "session_bridge"
+      }
+    }
+  }
+}
